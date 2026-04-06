@@ -1,0 +1,13 @@
+.top-tabs   {
+    width: 60% !important;
+    color: black;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-evenly !important;
+    gap: 20px !important;
+}
+
+.link-item {
+    text-decoration: none !important;
+    color: black !important ;
+}
