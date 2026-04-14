@@ -13,6 +13,10 @@ import AboutUs from './pages/AboutUs.jsx'
 import Footer from './components/Footer.jsx'
 // import HomeAfterLogin from './pages/HomeAfterLogin.jsx'
 import Admin from './pages/Admin.jsx'
+import AddNew from './pages/products/AddNew.jsx'
+import ShowAdmin from "./pages/products/ShowAdmin.jsx"
+import ShowUser from './pages/ShowUser.jsx'
+
 
 createRoot(document.getElementById('root')).render(
   
@@ -28,6 +32,10 @@ createRoot(document.getElementById('root')).render(
       <Route path='/aboutus' element={<AboutUs />}  />
       
       <Route path='/admin' element={<Admin />}  />
+      <Route path='/admin/addnewproduct' element={<AddNew />}  />
+      <Route path='/admin/showproduct' element={<ShowAdmin />}  />
+      <Route path='/showproduct/' element={<ShowUser />}  />
+      
     </Routes>
     <Footer />
   </BrowserRouter>

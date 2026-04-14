@@ -41,13 +41,18 @@ function Login() {
         );
         console.log(data);
         const { success, message } = data;
+        console.log(data);
         if (success) {
             handleSuccess(message);
+
+            localStorage.setItem("user", JSON.stringify(data.user));
+            localStorage.setItem("role", data.role);
+            localStorage.setItem("id", data.id);
             setTimeout(() => {
             if (data.role === "admin") {
-                navigate("/admin", { state: {  user : data.user } });
+                navigate("/admin",{ state: { user: data.user}} );
             } else {
-                    navigate("/home");
+                    navigate("/");
             }
             }, 1000);
         } else {

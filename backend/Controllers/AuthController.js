@@ -39,12 +39,15 @@ module.exports.Login = async (req, res, next) => {
     if (!auth) {
       return res.json({message:'Incorrect password or email' }) 
     }
+    if (user.role != role){
+      return res.json({message:'Incorrect category,choose user or admin' })
+    } 
      const token = createSecretToken(user._id);
      res.cookie("token", token, {
        withCredentials: true,
        httpOnly: false,
      });
-     res.status(201).json({ message: "User logged in successfully", success: true, user: user.username, });
+     res.status(201).json({ message: "User logged in successfully", success: true, user: user.username, id: user._id, role: user.role });
      next()
   } catch (error) {
     console.error(error);

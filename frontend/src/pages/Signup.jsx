@@ -45,7 +45,7 @@ function Signup() {
         
         setTimeout(() => {
            
-            navigate("/");
+            navigate("/login");
            
         }, 1000);
       } else {
@@ -112,12 +112,12 @@ function Signup() {
                     className='offset-2 mt-3 fs-4'>
                         Choose account type:
                 </label>
-                <select id='role' value={role} name='role' className='col-8  m-auto fs-4 mb-5 p-1  rounded' onChange={handleOnChange}>
+                <select id='role' value={role} name='role' className='col-8  m-auto fs-4 mb-3 p-1  rounded' onChange={handleOnChange}>
                     <option value="user" className='col-8 m-auto fs-4 rounded' >user</option>
                     <option value="admin" className='col-8 m-auto fs-4 rounded' >admin</option>
                 </select>
-                <button className='col-5 fs-3 m-auto mt-5 rounded btn btn-info' type='submit'>Sign Up</button>
-                <p className='text-center fs-3 mt-4'>Account already exist? <Link to="/login">Login </Link></p>
+                <button className='col-5 fs-3 m-auto mt-2 rounded btn btn-info' type='submit'>Sign Up</button>
+                <p className='text-center fs-3 mt-4 mb-5'>Account already exist? <Link to="/login">Login </Link></p>
             </form>
             
             <ToastContainer />

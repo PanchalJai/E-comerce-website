@@ -1,13 +1,20 @@
-const Product = require("../Models/ProductModel")
+const Product = require("../Models/ProductModel");
+
 
 const create = async (req,res) => {
     try {
-        const newProduct = new Product(req.body());
-        if (!newProduct) {
-            return res.status(404).json({message: "product not found!"})
-        } 
-        const savedData = await newProduct.save();
+        console.log(req.body);
+        const { title, price, description, rating, stock, image } = req.body;
+        
+        const product = await Product.create( title, price, description, rating, stock, image);
+       
+        // const savedData = await newProduct.save();
+        // console.log(savedData);
+        console.log(product)
+        res.status(200).json({message: "Product Saved Successfully.", data : product})
+       
     } catch (error) {
+         console.log("❌ ERROR:", error);  
         res.status(500).json({errorMessage: error.message})
     }
     
@@ -49,7 +56,8 @@ const updateProduct = async (req,res) => {
         // res.status(200).json(updatedProduct);
         res.status(200).json({ message: "User Updated successfully." });
     } catch (error) {
-        res.status(500).json({errorMessage: error.message})  
+        console.log("FULL ERROR:", error);
+        res.status(500).json({errorMessage: error })  
     }
 }
 
